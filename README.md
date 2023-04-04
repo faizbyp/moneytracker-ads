@@ -1,2 +1,2 @@
-# Frontend Branch
-Tech Stack: React/React Native idk
+# Backend Branch
+Tech Stack: 
