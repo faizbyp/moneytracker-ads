@@ -1,5 +1,9 @@
 # Money Tracker 💸
+
 Proyek tugas akhir mata kuliah Analisis dan Desain Sistem.
+
+- [Mobile Apps Repo](https://github.com/faizbyp/moneytracker-ads/tree/frontend)
+- [Backend Repo](https://github.com/faizbyp/moneytracker-ads/tree/backend)
 
 ## Anggota Kelompok
 | Nama                          | NIM         | Role              |
