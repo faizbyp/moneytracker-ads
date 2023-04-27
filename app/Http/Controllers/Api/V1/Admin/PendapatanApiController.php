@@ -15,7 +15,7 @@ class PendapatanApiController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('pendapatan_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('pendapatan_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new PendapatanResource(Pendapatan::with(['username'])->get());
     }
@@ -31,7 +31,7 @@ class PendapatanApiController extends Controller
 
     public function show(Pendapatan $pendapatan)
     {
-        abort_if(Gate::denies('pendapatan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('pendapatan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new PendapatanResource($pendapatan->load(['username']));
     }
@@ -47,7 +47,7 @@ class PendapatanApiController extends Controller
 
     public function destroy(Pendapatan $pendapatan)
     {
-        abort_if(Gate::denies('pendapatan_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('pendapatan_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $pendapatan->delete();
 

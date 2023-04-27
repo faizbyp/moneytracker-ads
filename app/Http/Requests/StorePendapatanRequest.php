@@ -9,10 +9,10 @@ use Illuminate\Http\Response;
 
 class StorePendapatanRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Gate::allows('pendapatan_create');
-    }
+    // public function authorize()
+    // {
+    //     return Gate::allows('pendapatan_create');
+    // }
 
     public function rules()
     {

@@ -15,7 +15,7 @@ class TambahTagihanApiController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('tambah_tagihan_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('tambah_tagihan_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new TambahTagihanResource(TambahTagihan::with(['username'])->get());
     }
@@ -31,7 +31,7 @@ class TambahTagihanApiController extends Controller
 
     public function show(TambahTagihan $tambahTagihan)
     {
-        abort_if(Gate::denies('tambah_tagihan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('tambah_tagihan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new TambahTagihanResource($tambahTagihan->load(['username']));
     }
@@ -47,7 +47,7 @@ class TambahTagihanApiController extends Controller
 
     public function destroy(TambahTagihan $tambahTagihan)
     {
-        abort_if(Gate::denies('tambah_tagihan_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('tambah_tagihan_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $tambahTagihan->delete();
 

@@ -16,6 +16,8 @@
 
     <div class="card-body">
         <div class="table-responsive">
+            <h1>User ID: {{  Auth::id(); }}</h1>
+
             <table class=" table table-bordered table-striped table-hover datatable datatable-Pengeluaran">
                 <thead>
                     <tr>
@@ -41,12 +43,16 @@
                             {{ trans('cruds.pengeluaran.fields.description') }}
                         </th>
                         <th>
+                            {{ trans('cruds.pengeluaran.fields.username_id') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($pengeluarans as $key => $pengeluaran)
+                        @if($pengeluaran->username_id == Auth::id())
                         <tr data-entry-id="{{ $pengeluaran->id }}">
                             <td>
 
@@ -68,6 +74,9 @@
                             </td>
                             <td>
                                 {{ $pengeluaran->description ?? '' }}
+                            </td>
+                            <td>
+                                {{ $pengeluaran->username_id ?? '' }}
                             </td>
                             <td>
                                 @can('pengeluaran_show')
@@ -93,7 +102,9 @@
                             </td>
 
                         </tr>
+                        @endif    
                     @endforeach
+                    
                 </tbody>
             </table>
         </div>

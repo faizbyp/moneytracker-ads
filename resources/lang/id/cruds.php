@@ -112,6 +112,7 @@ return [
             'entry_date'         => 'tanggal',
             'entry_date_helper'  => ' ',
             'kategori'           => 'Kategori',
+            'username_id'           => 'ID username',
             'kategori_helper'    => ' ',
             'description'        => 'catatan',
             'description_helper' => ' ',
@@ -130,6 +131,7 @@ return [
         'title_singular' => 'Pengeluaran',
         'fields'         => [
             'id'                 => 'ID',
+            'username_id'           => 'ID username',
             'id_helper'          => ' ',
             'username'           => 'Username',
             'username_helper'    => ' ',

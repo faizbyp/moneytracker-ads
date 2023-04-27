@@ -9,10 +9,10 @@ use Illuminate\Http\Response;
 
 class StoreTambahTagihanRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Gate::allows('tambah_tagihan_create');
-    }
+    // public function authorize()
+    // {
+    //     return Gate::allows('tambah_tagihan_create');
+    // }
 
     public function rules()
     {

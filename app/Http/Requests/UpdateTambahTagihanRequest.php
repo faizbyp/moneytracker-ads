@@ -9,10 +9,10 @@ use Illuminate\Http\Response;
 
 class UpdateTambahTagihanRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Gate::allows('tambah_tagihan_edit');
-    }
+    // public function authorize()
+    // {
+    //     return Gate::allows('tambah_tagihan_edit');
+    // }
 
     public function rules()
     {

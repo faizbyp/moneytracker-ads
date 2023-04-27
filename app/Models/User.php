@@ -6,6 +6,7 @@ use App\Notifications\VerifyUserNotification;
 use Carbon\Carbon;
 use DateTimeInterface;
 use Hash;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +17,7 @@ use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
-    use SoftDeletes, Notifiable, HasFactory;
+    use SoftDeletes, Notifiable, HasFactory, HasApiTokens;
 
     public $table = 'users';
 

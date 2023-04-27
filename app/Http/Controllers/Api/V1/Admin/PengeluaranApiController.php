@@ -15,7 +15,7 @@ class PengeluaranApiController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('pengeluaran_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('pengeluaran_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new PengeluaranResource(Pengeluaran::with(['username'])->get());
     }
@@ -31,7 +31,7 @@ class PengeluaranApiController extends Controller
 
     public function show(Pengeluaran $pengeluaran)
     {
-        abort_if(Gate::denies('pengeluaran_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('pengeluaran_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return new PengeluaranResource($pengeluaran->load(['username']));
     }
@@ -47,7 +47,7 @@ class PengeluaranApiController extends Controller
 
     public function destroy(Pengeluaran $pengeluaran)
     {
-        abort_if(Gate::denies('pengeluaran_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // abort_if(Gate::denies('pengeluaran_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $pengeluaran->delete();
 
