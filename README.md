@@ -90,13 +90,15 @@ And now the setup is complete!
 1. To generate the API of the application, you first need to log in or register for an account. endpoints:
  - login: **/api/login**
  - register: **/api/register**
- 
+
 2. Once you're logged in, you will receive an access token that looks like this:
 ![image](./documents/images/api-login.png)
 
 3. When making a request, add your token to the authorization header. If you're using Postman, you can do it like this:
 ![image](./documents/images/authorization.png)
+
 4. Now, you can make any API requests that exist in the application. Checkout: [API endpoints](#API-endpoints)
+![image](./documents/images/connected-api.png)
 
 5. For more information on generating a token, you can refer to:
 [Generate token for Laravel sanctum](https://blog.quickadminpanel.com/quickadminpanel-api-generator-with-laravel-sanctum/)
