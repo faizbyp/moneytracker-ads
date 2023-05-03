@@ -15,7 +15,7 @@ $theme-colors: (
   "red": #EB1422,
   "white": #FFFFFF,
   "black": #000000,
-  "gray-10": #E0E0E0, "gray-30": #BDBDBD, "gray-50": #828282, "gray-70": #4F4F4F, "gray-90": #333333
+  "gray-5": #F5F5F5, "gray-10": #E0E0E0, "gray-30": #BDBDBD, "gray-50": #828282, "gray-70": #4F4F4F, "gray-90": #333333
 );
 
 // Changing font base
@@ -27,7 +27,7 @@ $font-family-base: 'Roboto', sans-serif;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-body {
+html {
   max-width: 576px;
   margin: auto;
 }

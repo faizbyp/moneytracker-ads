@@ -12,7 +12,7 @@ function Register() {
           <div className="my-4">
             <input type="password" placeholder="password" className="form-control border-0 bg-gray-10" id="exampleInputPassword1" />
           </div>
-          <button type="button" className="w-100 mb-5 btn btn-primary text-white rounded-3">REGISTER</button>
+          <Link to="/home" className="w-100 mb-5 btn btn-primary text-white rounded-3">REGISTER</Link>
         </form>
       </main>
       <section className="text-center mt-4">
