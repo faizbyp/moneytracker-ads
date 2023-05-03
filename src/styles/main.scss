@@ -4,14 +4,18 @@
 // Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
+$primary: #FF9E2D;
+$secondary: #23A036;
+
 // Include any default variable overrides here
 $theme-colors: (
-  "green": #23A036,
-  "orange": #FF9E2D,
+  "primary": #FF9E2D,
+  "secondary": #23A036,
   "yellow": #FFCB2D,
   "red": #EB1422,
   "white": #FFFFFF,
   "black": #000000,
+  "gray-10": #E0E0E0, "gray-30": #BDBDBD, "gray-50": #828282, "gray-70": #4F4F4F, "gray-90": #333333
 );
 
 // Changing font base
