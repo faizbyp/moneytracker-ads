@@ -1,0 +1,29 @@
+// Importing fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Include any default variable overrides here
+$theme-colors: (
+  "green": #23A036,
+  "orange": #FF9E2D,
+  "yellow": #FFCB2D,
+  "red": #EB1422,
+  "white": #FFFFFF,
+  "black": #000000,
+);
+
+// Changing font base
+$font-family-base: 'Roboto', sans-serif;
+
+@import "../../node_modules/bootstrap/scss/variables";
+
+// Include any default map overrides here
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  max-width: 576px;
+  margin: auto;
+}
