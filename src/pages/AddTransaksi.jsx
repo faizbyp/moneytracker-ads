@@ -13,7 +13,7 @@ function AddTransaksi() {
 
       <main className="bg-white rounded-5 p-3 mb-4">
 
-        <ul className="nav nav-tabs nav-fill" id="myTab" role="tablist">
+        <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#pendapatan-tab-pane" type="button" role="tab" aria-controls="pendapatan-tab-pane" aria-selected="true">Pendapatan</button>
           </li>
