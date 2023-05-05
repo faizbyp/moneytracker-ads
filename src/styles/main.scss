@@ -8,6 +8,9 @@ $min-contrast-ratio: 2 !default;
 $primary: #FF9E2D;
 $secondary: #23A036;
 
+$nav-link-color: #828282;
+$nav-underline-link-active-color: $primary;
+
 // Include any default variable overrides here
 $theme-colors: (
   "primary": #FF9E2D,
