@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Analytics } from '@vercel/analytics/dist/react';
+import { Analytics } from '@vercel/analytics/react';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
