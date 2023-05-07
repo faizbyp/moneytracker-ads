@@ -1,0 +1,24 @@
+atasi masalah migrate seed database[done]
+atasi masalah global dan panel (kayaknya ada page yg ilang) [done]
+user masih blum ada access padahal dah set permission [done] -> blom set role lmao
+ganti prefix admin jadi api [done]
+
+buat username unseenable/unchangeable di create trus harus cocok sama current user [done] -> from user.id
+prefix di api pendapatan,pengeluaran, tambah-tagihan jangan pake s [canceled]
+di semua page tampilkan hanya untuk yg punya user tsb [canceled]
+register masih banyak masalah
+ - ilangin field email di register [canceled]
+ - automatic set role buat user gimana biar gausah manual [done]
+ -
+show data2 ke ui nya yg buat siapa? [done] -> api
+
+service nginx, fastcgi.conf, default.conf -> web driver [done]
+service php, Dockerfile artisan command [done]
+service mysql, auto create database, [done] -> using init
+
+testing di local [done]
+ - down 2 times - up again [done]
+ - drop db - up again [done]
+ - check all function [done] -> run normally 
+
+testing di server 

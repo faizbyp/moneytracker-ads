@@ -66,6 +66,17 @@ php artisan serve
 ```
 And now the setup is complete!
 
+## Run with Docker
+Make sure you already install docker in your service or device. To start simply run:
+
+```sh
+docker-compose up -d --build
+```
+To stop, run:
+
+```sh
+docker-compose down
+```
 
 ## Admin Dashboard 
 
