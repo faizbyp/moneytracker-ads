@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// eslint-disable-next-line import/no-unresolved
 import { Analytics } from '@vercel/analytics/react';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -8,6 +9,7 @@ import Transaksi from './pages/Transaksi';
 import Akun from './pages/Akun';
 import Navbar from './components/Navbar';
 import AddTransaksi from './pages/AddTransaksi';
+import AddTagihan from './pages/AddTagihan';
 
 function App() {
   return (
@@ -21,9 +23,10 @@ function App() {
               <Route index element={<Home />} />
               <Route path="tagihan" element={<Tagihan />} />
               <Route path="transaksi" element={<Transaksi />} />
-              <Route path="transaksi/add" element={<AddTransaksi isNav={false} />} />
               <Route path="akun" element={<Akun />} />
             </Route>
+            <Route path="/transaksi/add" element={<AddTransaksi />} />
+            <Route path="/tagihan/add" element={<AddTagihan />} />
           </Routes>
         </main>
       </BrowserRouter>

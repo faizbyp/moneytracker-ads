@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Plus from '../assets/icons/PlusTransaction.svg';
+import Box from '../components/Box';
 
 function Tagihan() {
   return (
@@ -8,7 +9,7 @@ function Tagihan() {
         <h1 className="m-0">Tagihan</h1>
       </header>
 
-      <main className="bg-white rounded-5 p-3 mb-4">
+      <Box>
 
         <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
@@ -27,7 +28,7 @@ function Tagihan() {
               sewa, langganan internet, dll.
             </p>
             <div className="text-end">
-              <Link to="/home"><img src={Plus} height={64} alt="" /></Link>
+              <Link to="/tagihan/add"><img src={Plus} height={64} alt="" /></Link>
             </div>
           </div>
 
@@ -37,7 +38,7 @@ function Tagihan() {
             </p>
           </div>
         </div>
-      </main>
+      </Box>
     </>
   );
 }

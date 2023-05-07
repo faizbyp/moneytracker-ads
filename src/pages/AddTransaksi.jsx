@@ -1,16 +1,10 @@
-import { Link } from 'react-router-dom';
-import Back from '../assets/icons/Back.svg';
 import FormAdd from '../components/FormAdd';
+import TitleWithBack from '../components/TitleWithBack';
 
 function AddTransaksi() {
   return (
-    <>
-      <header className="d-flex align-items-center py-3">
-        <Link to="/home">
-          <img src={Back} alt="" className="img-fluid me-4" width={32} />
-        </Link>
-        <h1 className="m-0">Tambah Transaksi</h1>
-      </header>
+    <section className="px-3">
+      <TitleWithBack title="Tambah Transaksi" />
 
       <main className="bg-white rounded-5 p-3 mb-4">
 
@@ -34,7 +28,7 @@ function AddTransaksi() {
           </div>
         </div>
       </main>
-    </>
+    </section>
   );
 }
 export default AddTransaksi;
