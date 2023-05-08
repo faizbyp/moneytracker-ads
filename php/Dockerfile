@@ -15,11 +15,14 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
+RUN curl -sS https://getcomposer.org/installer​ | php -- \
+     --install-dir=/usr/local/bin --filename=composer
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --optimize-autoloader --no-dev; \
-    php artisan migrate --seed \
-    php artisan key:generate \
-    php artisan storage:link; \
-    chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www/html
+
+# wrong
+#composer install --no-scripts --ignore-platform-reqs --no-dev
+# RUN php artisan migrate --seed
+# RUN php artisan key:generate 
+# RUN php artisan storage:link
