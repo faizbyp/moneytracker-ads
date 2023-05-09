@@ -3,7 +3,7 @@ import TitleWithBack from '../components/TitleWithBack';
 
 function AddTagihan() {
   return (
-    <section className="px-3">
+    <>
       <TitleWithBack title="Tambah Tagihan" />
 
       <Box>
@@ -29,7 +29,7 @@ function AddTagihan() {
           </div>
         </form>
       </Box>
-    </section>
+    </>
   );
 }
 export default AddTagihan;

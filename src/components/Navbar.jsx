@@ -7,7 +7,7 @@ import PlusTransaction from '../assets/icons/PlusTransaction.svg';
 
 function Navbar() {
   return (
-    <section className="px-3">
+    <>
       <Outlet />
       <div style={{ height: '80px' }} />
       <nav className="fixed-bottom bg-white border-top d-flex justify-content-around align-items-center text-center" style={{ height: '80px' }}>
@@ -19,7 +19,7 @@ function Navbar() {
         <Link to="/home/tagihan"><img src={Tagihan} alt="Tagihan" /></Link>
         <Link to="/home/akun"><img src={Akun} alt="Akun" /></Link>
       </nav>
-    </section>
+    </>
   );
 }
 export default Navbar;

@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <main className="bg-gray-5 min-vh-100">
+        <main className="bg-gray-5 px-3 min-vh-100">
           <Routes>
             <Route index path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />

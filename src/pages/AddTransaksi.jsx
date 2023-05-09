@@ -3,7 +3,7 @@ import TitleWithBack from '../components/TitleWithBack';
 
 function AddTransaksi() {
   return (
-    <section className="px-3">
+    <>
       <TitleWithBack title="Tambah Transaksi" />
 
       <main className="bg-white rounded-5 p-3 mb-4">
@@ -28,7 +28,7 @@ function AddTransaksi() {
           </div>
         </div>
       </main>
-    </section>
+    </>
   );
 }
 export default AddTransaksi;
