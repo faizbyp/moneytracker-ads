@@ -1,3 +1,4 @@
+import Box from '../components/Box';
 import FormAdd from '../components/FormAdd';
 import TitleWithBack from '../components/TitleWithBack';
 
@@ -6,7 +7,7 @@ function AddTransaksi() {
     <>
       <TitleWithBack title="Tambah Transaksi" />
 
-      <main className="bg-white rounded-5 p-3 mb-4">
+      <Box>
 
         <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
@@ -27,7 +28,7 @@ function AddTransaksi() {
             <FormAdd />
           </div>
         </div>
-      </main>
+      </Box>
     </>
   );
 }
