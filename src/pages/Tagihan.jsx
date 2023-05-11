@@ -28,7 +28,7 @@ function Tagihan() {
               sewa, langganan internet, dll.
             </p>
             <div className="text-end">
-              <Link to="/tagihan/add"><img src={Plus} height={64} alt="" /></Link>
+              <Link to="add"><img src={Plus} height={64} alt="" /></Link>
             </div>
           </div>
 

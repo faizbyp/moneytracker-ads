@@ -15,7 +15,7 @@ function Navbar() {
         <Link to="/home/transaksi"><img src={Transaksi} alt="Transaksi" /></Link>
         {/* <Link to="/transaksi/add"
         className="btn btn-lg btn-primary text-white rounded-circle">+</Link> */}
-        <Link to="/transaksi/add"><img src={PlusTransaction} alt="+" className="mb-2" /></Link>
+        <Link to="/home/transaksi/add"><img src={PlusTransaction} alt="+" className="mb-2" /></Link>
         <Link to="/home/tagihan"><img src={Tagihan} alt="Tagihan" /></Link>
         <Link to="/home/akun"><img src={Akun} alt="Akun" /></Link>
       </nav>

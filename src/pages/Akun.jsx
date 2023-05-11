@@ -1,7 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ProfilePic from '../assets/icons/ProfilePic.svg';
+import { deleteCookies } from '../utils/cookiesManager';
+import { accessToken } from '../utils/constant';
 
 function Akun() {
+  const navigate = useNavigate();
+
   return (
     <>
       <header className="d-flex align-items-center py-3">
@@ -13,7 +17,16 @@ function Akun() {
         <h2>Nama</h2>
         <p>email@gmail.com</p>
         <br />
-        <Link to="/" className="btn btn-white rounded-pill w-100 fw-bold py-3">KELUAR</Link>
+        <button
+          type="button"
+          className="btn btn-white rounded-pill w-100 fw-bold py-3"
+          onClick={() => {
+            deleteCookies(accessToken);
+            navigate('/');
+          }}
+        >
+          KELUAR
+        </button>
       </main>
     </>
   );

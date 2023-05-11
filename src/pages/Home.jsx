@@ -24,18 +24,18 @@ function Home() {
         </div>
       </Box>
 
-      <Box style={{ height: '150px' }}>
+      <Box>
         <header className="d-flex justify-content-between border-bottom">
           <p className="fw-bold">Keuangan Saya</p>
-          <Link to="/" className="text-secondary text-decoration-none">Lihat semua</Link>
+          <Link to="akun" className="text-secondary text-decoration-none">Lihat semua</Link>
         </header>
       </Box>
 
       <header className="d-flex justify-content-between px-2 mb-2">
         <p className="fw-bold text-gray-50 m-0">Transaksi Terkini</p>
-        <Link to="/" className="text-secondary text-decoration-none">Lihat semua</Link>
+        <Link to="transaksi" className="text-secondary text-decoration-none">Lihat semua</Link>
       </header>
-      <Box style={{ height: '150px' }} />
+      <Box />
     </>
   );
 }
