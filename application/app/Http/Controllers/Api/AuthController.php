@@ -50,6 +50,8 @@ class AuthController extends Controller
 
         return response()->json([
             'access_token' => $authToken,
+            'username' => $user->name,
+            'user_id' => $user->id
         ]);
     }
 }

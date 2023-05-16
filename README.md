@@ -114,7 +114,9 @@ docker-compose down
 5. For more information on generating a token, you can refer to:
 [Generate token for Laravel sanctum](https://blog.quickadminpanel.com/quickadminpanel-api-generator-with-laravel-sanctum/)
 
-### API endpoints
+### Example of API endpoints
+Refference Usage:
+
 Default URL endpoints for all CRUDs are /api/v1/[crud_name]. As the application generate all API Resourceful Controller methods, so these URLs applicable.
 
 * GET /api/v1/users - get the list of users
@@ -145,6 +147,16 @@ To access other features of the application, you can use the same API as describ
 * GET /api/v1/tambah-tagihans/1 
 * PUT /api/v1/tambah-tagihans/1 
 * DELETE /api/v1/tambah-tagihans/1
+
+**total uang**
+For total of username_id
+* GET /api/total-uang/2
+
+For specific account 
+* GET /api/total-uang/2
+
+
+
 
 ### API-related code/script
 The API related file that maybe you need to know are located in:

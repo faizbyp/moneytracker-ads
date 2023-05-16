@@ -29,11 +29,18 @@ class PendapatanApiController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);
     }
 
-    public function show(Pendapatan $pendapatan)
-    {
-        // abort_if(Gate::denies('pendapatan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    // public function show(Pendapatan $pendapatan)
+    // {
+    //     // abort_if(Gate::denies('pendapatan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new PendapatanResource($pendapatan->load(['username']));
+    //     return new PendapatanResource($pendapatan->load(['username']));
+    // }
+    
+    public function show($usernameId)
+    {
+        $pendapatan = Pendapatan::where('username_id', $usernameId)->get();
+
+        return new PendapatanResource($pendapatan);
     }
 
     public function update(UpdatePendapatanRequest $request, Pendapatan $pendapatan)

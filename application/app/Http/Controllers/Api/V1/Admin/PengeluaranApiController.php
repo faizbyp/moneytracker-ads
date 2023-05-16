@@ -29,12 +29,27 @@ class PengeluaranApiController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);
     }
 
-    public function show(Pengeluaran $pengeluaran)
-    {
-        // abort_if(Gate::denies('pengeluaran_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    // public function show(Pengeluaran $pengeluaran)
+    // {
+    //     // abort_if(Gate::denies('pengeluaran_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new PengeluaranResource($pengeluaran->load(['username']));
+    //     return new PengeluaranResource($pengeluaran->load(['username']));
+    // }
+
+    public function show($usernameId)
+    {
+        $pengeluaran = Pengeluaran::where('username_id', $usernameId)->get();
+
+        return new PengeluaranResource($pengeluaran);
     }
+
+
+    // public function show_username($username)
+    // {
+    //     $pengeluaran = Pengeluaran::where('username', $username)->get();
+
+    //     return new PengeluaranResource($pengeluaran);
+    // }
 
     public function update(UpdatePengeluaranRequest $request, Pengeluaran $pengeluaran)
     {

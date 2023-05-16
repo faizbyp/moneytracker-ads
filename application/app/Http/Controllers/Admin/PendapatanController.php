@@ -55,13 +55,20 @@ class PendapatanController extends Controller
         return redirect()->route('admin.pendapatans.index');
     }
 
-    public function show(Pendapatan $pendapatan)
+    // public function show(Pendapatan $pendapatan)
+    // {
+    //     abort_if(Gate::denies('pendapatan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+    //     $pendapatan->load('username');
+
+    //     return view('admin.pendapatans.show', compact('pendapatan'));
+    // }
+
+    public function show($usernameId)
     {
-        abort_if(Gate::denies('pendapatan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $pendapatan = Pendapatan::where('username_id', $usernameId)->get();
 
-        $pendapatan->load('username');
-
-        return view('admin.pendapatans.show', compact('pendapatan'));
+        return new PendapatanResource($pengeluaran);
     }
 
     public function destroy(Pendapatan $pendapatan)

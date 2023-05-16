@@ -29,11 +29,18 @@ class TambahTagihanApiController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);
     }
 
-    public function show(TambahTagihan $tambahTagihan)
-    {
-        // abort_if(Gate::denies('tambah_tagihan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    // public function show(TambahTagihan $tambahTagihan)
+    // {
+    //     // abort_if(Gate::denies('tambah_tagihan_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new TambahTagihanResource($tambahTagihan->load(['username']));
+    //     return new TambahTagihanResource($tambahTagihan->load(['username']));
+    // }
+
+    public function show($usernameId)
+    {
+        $tambahTagihan = TambahTagihan::where('username_id', $usernameId)->get();
+
+        return new TambahTagihanResource($tambahTagihan);
     }
 
     public function update(UpdateTambahTagihanRequest $request, TambahTagihan $tambahTagihan)
