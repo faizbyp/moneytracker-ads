@@ -17,7 +17,7 @@
  - register: **/api/register**
 
 2. Once you're logged in, you will receive an access token that looks like this:
-![image](./documents/images/api-login.png)
+![image](./documents/images/api-login2.png)
 
 3. When making a request, add your token to the authorization header. If you're using Postman, you can do it like this:
 ![image](./documents/images/authorization.png)
@@ -33,7 +33,7 @@
 
 * Endpoints for login /api/login
 
-![image](./documents/images/api-login.png)
+![image](./documents/images/api-login2.png)
 
 * Endpoint for register /api/register
 
