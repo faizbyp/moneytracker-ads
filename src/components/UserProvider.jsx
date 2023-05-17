@@ -1,11 +1,16 @@
-import { createContext } from 'react';
+import { createContext, useMemo } from 'react';
 import { getCookies } from '../utils/cookiesManager';
-import { userId } from '../utils/constant';
+import { userId, userName } from '../utils/constant';
 
 export const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const user = getCookies(userId);
+  const userObj = {
+    id: getCookies(userId),
+    name: getCookies(userName),
+  };
+
+  const user = useMemo(() => (userObj), []);
 
   return (
     <UserContext.Provider value={user}>

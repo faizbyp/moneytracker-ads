@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <>
-      <h1 className="display-5 m-0 pt-3">{(total)}</h1>
+      <h1 className="display-5 m-0 pt-3">{toRupiah.format(total)}</h1>
       <p className="text-gray-50">Jumlah saldo</p>
 
       <Box>

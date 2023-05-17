@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import ProfilePic from '../assets/icons/ProfilePic.svg';
 import { deleteCookies } from '../utils/cookiesManager';
-import { accessToken } from '../utils/constant';
+import { accessToken, userId, userName } from '../utils/constant';
 
 function Akun() {
   const navigate = useNavigate();
@@ -22,6 +22,8 @@ function Akun() {
           className="btn btn-white rounded-pill w-100 fw-bold py-3"
           onClick={() => {
             deleteCookies(accessToken);
+            deleteCookies(userId);
+            deleteCookies(userName);
             navigate('/');
           }}
         >
