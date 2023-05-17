@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import Bell from '../assets/icons/mdi_bell.svg';
 import Box from '../components/Box';
 import { UserContext } from '../components/UserProvider';
-import { getTotal } from '../services/adminService';
+import { getTotal } from '../services/userService';
 import { toRupiah } from '../utils/constant';
 
 function Home() {
