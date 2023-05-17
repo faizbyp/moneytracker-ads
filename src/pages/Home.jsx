@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import Bell from '../assets/icons/mdi_bell.svg';
 import Box from '../components/Box';
+import { UserContext } from '../components/UserProvider';
 
 function Home() {
+  const user = useContext(UserContext);
   return (
     <>
-      <h1 className="display-5 m-0 pt-3">Rp100.000</h1>
+      <h1 className="display-5 m-0 pt-3">{user}</h1>
       <p className="text-gray-50">Jumlah saldo</p>
 
       <Box>

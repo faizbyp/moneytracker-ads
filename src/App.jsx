@@ -12,10 +12,11 @@ import AddTransaksi from './pages/AddTransaksi';
 import AddTagihan from './pages/AddTagihan';
 import { isLoggedIn } from './utils/cookiesManager';
 import Protected from './components/Protected';
+import UserProvider from './components/UserProvider';
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <BrowserRouter>
         <main className="bg-gray-5 px-3 min-vh-100">
           <Routes>
@@ -40,7 +41,7 @@ function App() {
         </main>
       </BrowserRouter>
       <Analytics />
-    </>
+    </UserProvider>
   );
 }
 
