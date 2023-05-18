@@ -1,8 +1,12 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-return-assign */
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import Bell from '../assets/icons/mdi_bell.svg';
 import Wallet from '../assets/icons/Wallet.svg';
 import EMoney from '../assets/icons/EMoney.svg';
+import Pendapatan from '../assets/icons/Pendapatan.png';
+import Pengeluaran from '../assets/icons/Pengeluaran.png';
 import Box from '../components/Box';
 import { UserContext } from '../components/UserProvider';
 import {
@@ -21,6 +25,8 @@ function Home() {
   const [pengeluaran, setPengeluaran] = useState();
 
   function transaksi(x, y) {
+    x.forEach((element) => element.type = 0);
+    y.forEach((element) => element.type = 1);
     return x.concat(y).sort((a, b) => a.entry_date - b.entry_date);
   }
 
@@ -42,9 +48,11 @@ function Home() {
     });
   }, []);
 
-  return balance ? (
+  return (
     <>
-      <h1 className="display-5 m-0 pt-3">{toRupiah.format(balance)}</h1>
+      {balance ? (
+        <h1 className="display-5 m-0 pt-3">{toRupiah.format(balance)}</h1>
+      ) : <Spinner /> }
       <p className="text-gray-50">Jumlah saldo</p>
 
       <Box>
@@ -68,26 +76,28 @@ function Home() {
           <p className="fw-bold">Keuangan Saya</p>
           <Link to="akun" className="text-secondary text-decoration-none">Lihat semua</Link>
         </header>
-        <div className="container my-2">
-          <div className="row mb-2 align-items-center">
-            <div className="col">
-              <img src={Wallet} className="me-3" alt="" />
-              <span className="fw-bold">Dompet</span>
+        {(wallet && emoney) ? (
+          <div className="container my-2">
+            <div className="row mb-2 align-items-center">
+              <div className="col">
+                <img src={Wallet} className="me-3" alt="" />
+                <span className="fw-bold">Dompet</span>
+              </div>
+              <div className="col text-end">
+                <span>{toRupiah.format(wallet)}</span>
+              </div>
             </div>
-            <div className="col text-end">
-              <span>{toRupiah.format(wallet)}</span>
+            <div className="row mb-2 align-items-center">
+              <div className="col">
+                <img src={EMoney} className="me-3" alt="" />
+                <span className="fw-bold">E-Money</span>
+              </div>
+              <div className="col text-end">
+                <span>{toRupiah.format(emoney)}</span>
+              </div>
             </div>
           </div>
-          <div className="row mb-2 align-items-center">
-            <div className="col">
-              <img src={EMoney} className="me-3" alt="" />
-              <span className="fw-bold">E-Money</span>
-            </div>
-            <div className="col text-end">
-              <span>{toRupiah.format(emoney)}</span>
-            </div>
-          </div>
-        </div>
+        ) : <Spinner /> }
       </Box>
 
       <header className="d-flex justify-content-between px-2 mb-2">
@@ -95,15 +105,31 @@ function Home() {
         <Link to="transaksi" className="text-secondary text-decoration-none">Lihat semua</Link>
       </header>
       <Box>
-        <ul>
+        <div className="container ps-0 my-2">
           {(pendapatan && pengeluaran)
-          && transaksi(pendapatan, pengeluaran).map((item) => (
-            <li>{item.amount}</li>
-          ))}
-        </ul>
+            ? transaksi(pendapatan, pengeluaran).slice(0, 2).map((item) => (
+              <div className="row mb-3 align-items-center">
+                <div className="col-auto">
+                  {item.type === 0
+                    ? (<img src={Pendapatan} alt="" />) : <img src={Pengeluaran} alt="" />}
+                </div>
+                <div className="col ps-0">
+                  <p className="m-0">{item.kategori}</p>
+                  <p className="m-0">
+                    <span className="fw-bold">
+                      {item.akun}
+                      {' '}
+                    </span>
+                    {item.entry_date}
+                  </p>
+                </div>
+                <div className="col text-end">{toRupiah.format(item.amount)}</div>
+              </div>
+            )) : <Spinner /> }
+        </div>
       </Box>
     </>
-  ) : (<Spinner />);
+  );
 }
 
 export default Home;
