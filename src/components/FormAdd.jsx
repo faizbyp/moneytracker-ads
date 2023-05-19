@@ -7,10 +7,10 @@ function FormAdd({ isPendapatan }) {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handlePendapatan = (e) => {
+  const handlePendapatan = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    postPendapatan(formData).then(navigate('/home'));
+    await postPendapatan(formData).then(navigate('/home')).catch((error) => alert(error));
   };
 
   const handlePengeluaran = (e) => {
@@ -28,7 +28,7 @@ function FormAdd({ isPendapatan }) {
       </div>
       <div className="d-flex align-items-center mb-3">
         <label className="form-label d-inline m-0 me-2">Jumlah</label>
-        <input name="amount" type="text" className="form-control border-0 border-bottom bg-transparent shadow-none" />
+        <input name="amount" type="numeric" className="form-control border-0 border-bottom bg-transparent shadow-none" />
       </div>
       <div className="d-flex align-items-center mb-3">
         <label className="form-label d-inline m-0 me-2">Kategori</label>
