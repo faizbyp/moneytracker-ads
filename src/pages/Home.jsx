@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-return-assign */
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import Bell from '../assets/icons/mdi_bell.svg';
@@ -12,7 +10,7 @@ import { UserContext } from '../components/UserProvider';
 import {
   getBalance, getEmoneyBal, getPendapatan, getPengeluaran, getWalletBal,
 } from '../services/userService';
-import { toDate, toRupiah } from '../utils/constant';
+import { toDate, toRupiah, transaksi } from '../utils/constant';
 import Spinner from '../components/Spinner';
 
 function Home() {
@@ -23,12 +21,6 @@ function Home() {
   const [emoney, setEmoney] = useState();
   const [pendapatan, setPendapatan] = useState();
   const [pengeluaran, setPengeluaran] = useState();
-
-  function transaksi(x, y) {
-    x.forEach((element) => element.type = 0);
-    y.forEach((element) => element.type = 1);
-    return x.concat(y).sort((a, b) => (a.entry_date < b.entry_date ? 1 : -1));
-  }
 
   useEffect(() => {
     getBalance(user.id).then((response) => {
