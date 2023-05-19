@@ -28,7 +28,7 @@ function FormAdd({ isPendapatan }) {
       </div>
       <div className="d-flex align-items-center mb-3">
         <label className="form-label d-inline m-0 me-2">Jumlah</label>
-        <input name="amount" type="numeric" className="form-control border-0 border-bottom bg-transparent shadow-none" />
+        <input name="amount" type="numeric" inputMode="numeric" className="form-control border-0 border-bottom bg-transparent shadow-none" />
       </div>
       <div className="d-flex align-items-center mb-3">
         <label className="form-label d-inline m-0 me-2">Kategori</label>
