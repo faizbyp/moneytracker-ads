@@ -12,7 +12,7 @@ import { UserContext } from '../components/UserProvider';
 import {
   getBalance, getEmoneyBal, getPendapatan, getPengeluaran, getWalletBal,
 } from '../services/userService';
-import { toRupiah } from '../utils/constant';
+import { toDate, toRupiah } from '../utils/constant';
 import Spinner from '../components/Spinner';
 
 function Home() {
@@ -74,7 +74,7 @@ function Home() {
       <Box>
         <header className="d-flex justify-content-between border-bottom">
           <p className="fw-bold">Keuangan Saya</p>
-          <Link to="akun" className="text-secondary text-decoration-none">Lihat semua</Link>
+          <Link to="transaksi" className="text-secondary text-decoration-none">Lihat semua</Link>
         </header>
         {(wallet && emoney) ? (
           <div className="container my-2">
@@ -114,13 +114,13 @@ function Home() {
                     ? (<img src={Pendapatan} alt="" />) : <img src={Pengeluaran} alt="" />}
                 </div>
                 <div className="col ps-0">
-                  <p className="m-0">{item.kategori}</p>
-                  <p className="m-0">
-                    <span className="fw-bold">
+                  <p className="m-0 text-capitalize">{item.kategori}</p>
+                  <p className="m-0 text-gray-50">
+                    <span className="fw-bold text-capitalize">
                       {item.akun}
-                      {' '}
+                      {' - '}
                     </span>
-                    {item.entry_date}
+                    {toDate(item.entry_date)}
                   </p>
                 </div>
                 <div className="col text-end">{toRupiah.format(item.amount)}</div>

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import Box from '../components/Box';
 import TransaksiHistory from '../components/TransaksiHistory';
 
@@ -10,7 +11,7 @@ function Transaksi() {
 
       <Box>
 
-        <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
+        {/* <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button className="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#past-tab-pane" type="button" role="tab" aria-controls="past-tab-pane" aria-selected="true">Bulan Lalu</button>
           </li>
@@ -35,7 +36,9 @@ function Transaksi() {
           <div className="tab-pane fade" id="future-tab-pane" role="tabpanel" aria-labelledby="future-tab" tabIndex="0">
             <TransaksiHistory />
           </div>
-        </div>
+        </div> */}
+
+        <TransaksiHistory />
 
       </Box>
     </>

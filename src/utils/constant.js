@@ -7,3 +7,9 @@ export const toRupiah = new Intl.NumberFormat('id-ID', {
   style: 'currency',
   currency: 'IDR',
 });
+
+export const toDate = (data) => {
+  const date = new Date(data);
+  const result = new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }).format(date);
+  return result;
+};
