@@ -107,7 +107,7 @@ function Home() {
       <Box>
         <div className="container ps-0 my-2">
           {(pendapatan && pengeluaran)
-            ? transaksi(pendapatan, pengeluaran).map((item) => (
+            ? transaksi(pendapatan, pengeluaran).slice(0, 2).map((item) => (
               <div className="row mb-3 align-items-center">
                 <div className="col-auto">
                   {item.type === 0
