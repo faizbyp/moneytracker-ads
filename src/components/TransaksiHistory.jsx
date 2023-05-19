@@ -31,7 +31,7 @@ function TransaksiHistory() {
     <div className="container my-4">
       <div className="row">
         <div className="col text-gray-50">
-          Pemasukan
+          Pendapatan
         </div>
         <div className="col text-end text-secondary">
           {pendapatan && toRupiah.format(calculateTotal(pendapatan))}

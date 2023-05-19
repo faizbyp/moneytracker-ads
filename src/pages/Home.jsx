@@ -27,7 +27,7 @@ function Home() {
   function transaksi(x, y) {
     x.forEach((element) => element.type = 0);
     y.forEach((element) => element.type = 1);
-    return x.concat(y).sort((a, b) => a.entry_date - b.entry_date);
+    return x.concat(y).sort((a, b) => (a.entry_date < b.entry_date ? 1 : -1));
   }
 
   useEffect(() => {
@@ -107,7 +107,7 @@ function Home() {
       <Box>
         <div className="container ps-0 my-2">
           {(pendapatan && pengeluaran)
-            ? transaksi(pendapatan, pengeluaran).slice(0, 2).map((item) => (
+            ? transaksi(pendapatan, pengeluaran).map((item) => (
               <div className="row mb-3 align-items-center">
                 <div className="col-auto">
                   {item.type === 0
