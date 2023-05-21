@@ -10,13 +10,11 @@ function Register() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     await register(formData)
+      .then(() => (navigate('/')))
       .catch((err) => {
         console.log(err);
         setError(true);
       });
-    if (isError) {
-      navigate('/');
-    }
   };
 
   return (
