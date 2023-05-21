@@ -13,5 +13,6 @@ export async function login(data) {
 }
 
 export async function register(data) {
-  return await API.post('/register', data);
+  const response = await API.post('/register', data);
+  return response.created_at;
 }
