@@ -1,16 +1,20 @@
 /* eslint-disable max-len */
-import { useContext, useEffect, useState } from 'react';
+import {
+  useContext, useEffect, useState,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '../components/Box';
 import TransaksiHistory from '../components/TransaksiHistory';
 import { toDate, toRupiah, transaksi } from '../utils/constant';
 import Pendapatan from '../assets/icons/Pendapatan.png';
 import Pengeluaran from '../assets/icons/Pengeluaran.png';
-import { getPendapatan, getPengeluaran } from '../services/userService';
+import { deletePendapatan, getPendapatan, getPengeluaran } from '../services/userService';
 import { UserContext } from '../components/UserProvider';
 import Spinner from '../components/Spinner';
 
 function Transaksi() {
   const user = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [pendapatan, setPendapatan] = useState();
   const [pengeluaran, setPengeluaran] = useState();
@@ -24,11 +28,14 @@ function Transaksi() {
     });
   }, []);
 
-  const handleDeletePendapatan = (id) => {
-    alert(`pendapatan ${id}`);
+  const handleDeletePendapatan = (id, kategori) => {
+    if (confirm(`Yakin menghapus ${kategori}?`)) {
+      deletePendapatan(id);
+      navigate('/home');
+    }
   };
 
-  const handleDeletePengeluaran = (id) => {
+  const handleDeletePengeluaran = (id, kategori) => {
     alert(`pengeluaran ${id}`);
   };
 
@@ -75,12 +82,14 @@ function Transaksi() {
         <p className="fw-bold text-gray-50 m-0">Transaksi Terkini</p>
       </header>
       <Box>
+        <small className="text-center text-gray-30 d-block">press item to delete transaction</small>
         <div className="container ps-0 my-2">
           {(pendapatan && pengeluaran)
             ? transaksi(pendapatan, pengeluaran).map((item) => (
               <div
                 className="row mb-3 align-items-center"
-                onClick={item.type === 0 ? () => handleDeletePendapatan(item.id) : () => handleDeletePengeluaran(item.id)}
+                onClick={item.type === 0 ? () => handleDeletePendapatan(item.id, item.kategori) : () => handleDeletePengeluaran(item.id, item.kategori)}
+                aria-hidden="true"
               >
                 <div className="col-auto">
                   {item.type === 0
