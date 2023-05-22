@@ -8,3 +8,6 @@ export const getPengeluaran = async (id) => API.get(`/v1/pengeluarans/${id}`);
 
 export const postPendapatan = async (data) => API.post('/v1/pendapatans/', data);
 export const postPengeluaran = async (data) => API.post('/v1/pengeluarans/', data);
+
+export const deletePendapatan = async (id) => API.delete(`v1/pendapatans/${id}`);
+export const deletePengeluaran = async (id) => API.delete(`v1/pengeluarans/${id}`);

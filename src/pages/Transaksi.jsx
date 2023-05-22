@@ -24,6 +24,14 @@ function Transaksi() {
     });
   }, []);
 
+  const handleDeletePendapatan = (id) => {
+    alert(`pendapatan ${id}`);
+  };
+
+  const handleDeletePengeluaran = (id) => {
+    alert(`pengeluaran ${id}`);
+  };
+
   return (
     <>
       <header className="d-flex align-items-center py-3">
@@ -70,7 +78,10 @@ function Transaksi() {
         <div className="container ps-0 my-2">
           {(pendapatan && pengeluaran)
             ? transaksi(pendapatan, pengeluaran).map((item) => (
-              <div className="row mb-3 align-items-center">
+              <div
+                className="row mb-3 align-items-center"
+                onClick={item.type === 0 ? () => handleDeletePendapatan(item.id) : () => handleDeletePengeluaran(item.id)}
+              >
                 <div className="col-auto">
                   {item.type === 0
                     ? (<img src={Pendapatan} alt="" />) : <img src={Pengeluaran} alt="" />}
