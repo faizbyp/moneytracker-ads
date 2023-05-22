@@ -8,7 +8,9 @@ import TransaksiHistory from '../components/TransaksiHistory';
 import { toDate, toRupiah, transaksi } from '../utils/constant';
 import Pendapatan from '../assets/icons/Pendapatan.png';
 import Pengeluaran from '../assets/icons/Pengeluaran.png';
-import { deletePendapatan, getPendapatan, getPengeluaran } from '../services/userService';
+import {
+  deletePendapatan, deletePengeluaran, getPendapatan, getPengeluaran,
+} from '../services/userService';
 import { UserContext } from '../components/UserProvider';
 import Spinner from '../components/Spinner';
 
@@ -36,7 +38,10 @@ function Transaksi() {
   };
 
   const handleDeletePengeluaran = (id, kategori) => {
-    alert(`pengeluaran ${id}`);
+    if (confirm(`Yakin menghapus ${kategori}?`)) {
+      deletePengeluaran(id);
+      navigate('/home');
+    }
   };
 
   return (
