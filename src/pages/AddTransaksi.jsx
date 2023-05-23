@@ -21,11 +21,11 @@ function AddTransaksi() {
         <div className="tab-content" id="myTabContent">
 
           <div className="tab-pane fade show active" id="pendapatan-tab-pane" role="tabpanel" aria-labelledby="pendapatan-tab" tabIndex="0">
-            <FormAdd />
+            <FormAdd isPendapatan />
           </div>
 
           <div className="tab-pane fade" id="pengeluaran-tab-pane" role="tabpanel" aria-labelledby="pengeluaran-tab" tabIndex="0">
-            <FormAdd />
+            <FormAdd isPendapatan={false} />
           </div>
         </div>
       </Box>

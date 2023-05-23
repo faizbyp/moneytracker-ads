@@ -10,28 +10,38 @@ import Akun from './pages/Akun';
 import Navbar from './components/Navbar';
 import AddTransaksi from './pages/AddTransaksi';
 import AddTagihan from './pages/AddTagihan';
+import { isLoggedIn } from './utils/cookiesManager';
+import Protected from './components/Protected';
+import UserProvider from './components/UserProvider';
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <BrowserRouter>
         <main className="bg-gray-5 px-3 min-vh-100">
           <Routes>
             <Route index path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/home" element={<Navbar />}>
+            <Route
+              path="/home"
+              element={(
+                <Protected isLoggedIn={isLoggedIn}>
+                  <Navbar />
+                </Protected>
+              )}
+            >
               <Route index element={<Home />} />
               <Route path="tagihan" element={<Tagihan />} />
+              <Route path="tagihan/add" element={<AddTagihan />} />
               <Route path="transaksi" element={<Transaksi />} />
+              <Route path="transaksi/add" element={<AddTransaksi />} />
               <Route path="akun" element={<Akun />} />
             </Route>
-            <Route path="/transaksi/add" element={<AddTransaksi />} />
-            <Route path="/tagihan/add" element={<AddTagihan />} />
           </Routes>
         </main>
       </BrowserRouter>
       <Analytics />
-    </>
+    </UserProvider>
   );
 }
 

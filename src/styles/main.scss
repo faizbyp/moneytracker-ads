@@ -13,8 +13,8 @@ $nav-underline-link-active-color: $primary;
 
 // Include any default variable overrides here
 $theme-colors: (
-  "primary": #FF9E2D,
-  "secondary": #23A036,
+  "primary": $primary,
+  "secondary": $secondary,
   "yellow": #FFCB2D,
   "red": #EB1422,
   "white": #FFFFFF,
