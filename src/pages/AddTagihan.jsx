@@ -14,15 +14,11 @@ function AddTagihan() {
           </div>
           <div className="d-flex align-items-center mb-3">
             <label className="form-label d-inline m-0 me-2">Jumlah</label>
-            <input name="jumlah" type="text" className="form-control border-0 border-bottom bg-transparent shadow-none" />
+            <input name="amount" type="text" className="form-control border-0 border-bottom bg-transparent shadow-none" />
           </div>
           <div className="d-flex align-items-center mb-3">
             <label className="form-label d-inline m-0 me-2">Tanggal</label>
-            <input name="tanggal" type="date" className="form-control border-0 border-bottom bg-transparent shadow-none" />
-          </div>
-          <div className="d-flex align-items-center mb-3">
-            <label className="form-label d-inline m-0 me-2">Catatan</label>
-            <input name="jumlah" type="text" className="form-control border-0 border-bottom bg-transparent shadow-none" />
+            <input name="entry_date" type="date" className="form-control border-0 border-bottom bg-transparent shadow-none" />
           </div>
           <div className="text-center">
             <button type="button" className="btn btn-primary rounded-pill px-5 py-2">Simpan</button>

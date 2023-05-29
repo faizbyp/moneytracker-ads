@@ -1,8 +1,22 @@
 import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
 import Plus from '../assets/icons/PlusTransaction.svg';
 import Box from '../components/Box';
+import { UserContext } from '../components/UserProvider';
+import { getTagihan } from '../services/userService';
+import Spinner from '../components/Spinner';
 
 function Tagihan() {
+  const user = useContext(UserContext);
+
+  const [tagihan, setTagihan] = useState();
+
+  useEffect(() => {
+    getTagihan(user.id).then((response) => {
+      setTagihan(response.data);
+    });
+  }, []);
+
   return (
     <>
       <header className="d-flex align-items-center py-3">
@@ -11,16 +25,32 @@ function Tagihan() {
 
       <Box>
 
-        <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
+        {/* <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#pendapatan-tab-pane" type="button" role="tab" aria-controls="pendapatan-tab-pane" aria-selected="true">Aktif</button>
           </li>
           <li className="nav-item" role="presentation">
             <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#pengeluaran-tab-pane" type="button" role="tab" aria-controls="pengeluaran-tab-pane" aria-selected="false">Selesai</button>
           </li>
-        </ul>
+        </ul> */}
 
-        <div className="tab-content" id="myTabContent">
+        <div className="my-2">
+          {tagihan ? (
+            tagihan.map((item) => (
+              <>
+                <p className="fw-bold">{item.nama}</p>
+                <button className="btn btn-red text-uppercase">Bayar</button>
+                <hr />
+              </>
+            ))
+          ) : <Spinner />}
+        </div>
+
+        <div className="text-end">
+          <Link to="add"><img src={Plus} height={64} alt="" /></Link>
+        </div>
+
+        {/* <div className="tab-content" id="myTabContent">
 
           <div className="tab-pane fade show active" id="pendapatan-tab-pane" role="tabpanel" aria-labelledby="pendapatan-tab" tabIndex="0">
             <p className="my-3 text-gray-50">
@@ -37,7 +67,7 @@ function Tagihan() {
               Tidak ada tagihan yang sudah selesai
             </p>
           </div>
-        </div>
+        </div> */}
       </Box>
     </>
   );
