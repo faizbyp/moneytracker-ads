@@ -1,8 +1,31 @@
-import { Link } from 'react-router-dom';
+/* eslint-disable max-len */
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
 import Plus from '../assets/icons/PlusTransaction.svg';
 import Box from '../components/Box';
+import { UserContext } from '../components/UserProvider';
+import { deleteTagihan, getTagihan } from '../services/userService';
+import Spinner from '../components/Spinner';
 
 function Tagihan() {
+  const user = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const [tagihan, setTagihan] = useState();
+
+  useEffect(() => {
+    getTagihan(user.id).then((response) => {
+      setTagihan(response.data);
+    });
+  }, []);
+
+  const handleDelete = (id, nama) => {
+    if (confirm(`Yakin ${nama} sudah dibayar?`)) {
+      deleteTagihan(id);
+      navigate('/home');
+    }
+  };
+
   return (
     <>
       <header className="d-flex align-items-center py-3">
@@ -11,16 +34,38 @@ function Tagihan() {
 
       <Box>
 
-        <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
+        {/* <ul className="nav nav-underline nav-justified" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#pendapatan-tab-pane" type="button" role="tab" aria-controls="pendapatan-tab-pane" aria-selected="true">Aktif</button>
           </li>
           <li className="nav-item" role="presentation">
             <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#pengeluaran-tab-pane" type="button" role="tab" aria-controls="pengeluaran-tab-pane" aria-selected="false">Selesai</button>
           </li>
-        </ul>
+        </ul> */}
 
-        <div className="tab-content" id="myTabContent">
+        <div className="my-2 container">
+          {tagihan ? (
+            tagihan.map((item) => (
+              <>
+                <div className="row row-cols-2 align-items-center">
+                  <div className="col">
+                    <p className="fw-bold d-inline">{item.nama}</p>
+                  </div>
+                  <div className="col text-end">
+                    <button type="button" className="btn btn-red text-uppercase" onClick={() => handleDelete(item.id)}>Bayar</button>
+                  </div>
+                </div>
+                <hr />
+              </>
+            ))
+          ) : <Spinner />}
+        </div>
+
+        <div className="text-end">
+          <Link to="add"><img src={Plus} height={64} alt="" /></Link>
+        </div>
+
+        {/* <div className="tab-content" id="myTabContent">
 
           <div className="tab-pane fade show active" id="pendapatan-tab-pane" role="tabpanel" aria-labelledby="pendapatan-tab" tabIndex="0">
             <p className="my-3 text-gray-50">
@@ -37,7 +82,7 @@ function Tagihan() {
               Tidak ada tagihan yang sudah selesai
             </p>
           </div>
-        </div>
+        </div> */}
       </Box>
     </>
   );
