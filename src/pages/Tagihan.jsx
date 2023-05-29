@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import Plus from '../assets/icons/PlusTransaction.svg';
@@ -34,12 +35,18 @@ function Tagihan() {
           </li>
         </ul> */}
 
-        <div className="my-2">
+        <div className="my-2 container">
           {tagihan ? (
             tagihan.map((item) => (
               <>
-                <p className="fw-bold">{item.nama}</p>
-                <button className="btn btn-red text-uppercase">Bayar</button>
+                <div className="row row-cols-2 align-items-center">
+                  <div className="col">
+                    <p className="fw-bold d-inline">{item.nama}</p>
+                  </div>
+                  <div className="col text-end">
+                    <button type="button" className="btn btn-red text-uppercase">Bayar</button>
+                  </div>
+                </div>
                 <hr />
               </>
             ))
