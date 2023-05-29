@@ -13,3 +13,4 @@ export const postTagihan = async (data) => API.post('v1/tambah-tagihans', data);
 
 export const deletePendapatan = async (id) => API.delete(`v1/pendapatans/${id}`);
 export const deletePengeluaran = async (id) => API.delete(`v1/pengeluarans/${id}`);
+export const deleteTagihan = async (id) => API.delete(`v1/tambah-tagihans/${id}`);

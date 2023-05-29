@@ -1,14 +1,15 @@
 /* eslint-disable max-len */
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import Plus from '../assets/icons/PlusTransaction.svg';
 import Box from '../components/Box';
 import { UserContext } from '../components/UserProvider';
-import { getTagihan } from '../services/userService';
+import { deleteTagihan, getTagihan } from '../services/userService';
 import Spinner from '../components/Spinner';
 
 function Tagihan() {
   const user = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [tagihan, setTagihan] = useState();
 
@@ -17,6 +18,13 @@ function Tagihan() {
       setTagihan(response.data);
     });
   }, []);
+
+  const handleDelete = (id, nama) => {
+    if (confirm(`Yakin ${nama} sudah dibayar?`)) {
+      deleteTagihan(id);
+      navigate('/home');
+    }
+  };
 
   return (
     <>
@@ -44,7 +52,7 @@ function Tagihan() {
                     <p className="fw-bold d-inline">{item.nama}</p>
                   </div>
                   <div className="col text-end">
-                    <button type="button" className="btn btn-red text-uppercase">Bayar</button>
+                    <button type="button" className="btn btn-red text-uppercase" onClick={() => handleDelete(item.id)}>Bayar</button>
                   </div>
                 </div>
                 <hr />
